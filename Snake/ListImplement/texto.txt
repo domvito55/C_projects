@@ -1,0 +1,65 @@
+	No meu programa foi usada apenas uma lista, para armazenar as coordenadas da cobra.
+A lista eh do tipo duplamente encadeada, pois na minha logica de movimentacao da cobra era 
+nescessario que se fizesse referencia ao penultimo elemento da lista. Tambem por exigencia
+da logica de movimentacao a lista eh circular. Abaixo esta descrita tal logica:
+	Ao teclar uma das setas do teclado, uma variavel do tipo coordenada, recebia valores.
+Por exemplo, se teclar a seta direita, a variavel armazenava o valor 1 para o eixo horizontal
+e 0 para o eixo vertical. Ou seja essa variavel guardava o sentido de movimentacao.
+	Na hora da movimentacao o ponteiro que guardava as coordenadas do rabo passa a ter
+coordenada horizontal = (coordenada horizontal da cabeca)+(coordenada horizontal do sentido de movimentacao) e
+coordenada vertical = (coordenada vertial da cabeca)+(coordenada vertical do sentido de movimentacao)
+	Depois faz-se com que a variavel cabeca passe a apontar para a nova posicao de rabo
+e o ponteiro de rabo passe a apontar para a posicao do penultimo elemento da lista.
+
+Graficamente o que acontece eh o seguinte, imagine que abaixo estejam representados 3 planos cartesianos,
+c seja o ponteiro da cabeca, r o ponteiro do rabo, p o penultimo elemento e que o sentido de movimentacao
+seja da esquerda pra direita, portanto, as coordenadas direcao sao(1,0)
+
+Aqui r armazena as coordenadas (2,2), p armazena as coordenadas (3,2), c armazena as coordenadas (4,2).
+ 1 2 3 4 5 6 7
+1
+
+2  r p c
+
+3
+
+4
+
+5
+
+6
+
+7
+
+
+Aqui r=(1,0)+(4,2)=(5,2), p continua (3,2), c continua  (4,2).
+ 1 2 3 4 5 6 7
+1
+
+2    p c r
+
+3
+
+4
+
+5
+
+6
+
+7
+
+Nessa faze so a a troca dos ponteiros para evitar confusoes posteriores, c assume lugar de r e r o lugar de p
+ 1 2 3 4 5 6 7
+1
+
+2    r p c
+
+3
+
+4
+
+5
+
+6
+
+7

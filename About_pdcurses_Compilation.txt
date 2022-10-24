@@ -1,0 +1,17 @@
+gcc CobrinhaMatriz.c -I D:/pCloudFolder/Repositories/C_projects/PDCurses-3.8 D:/pCloudFolder/Repositories/C_projects/PDCurses-3.8/wincon/pdcurses.a -o main.exe
+
+pdcourses compilation (instalation)
+https://github.com/wmcbrine/PDCurses/blob/master/wincon/README.md
+
+To add 3rd party libraries to a C project compilation
+
+gcc main.c -I foo/include foo/lib/foo.a -o main.exe
+
+
+the -I flag adds to the path searched for headers.
+You can also add to the lib path, but then things start to get complicated :-)
+
+
+I could not make this approach to work
+
+gcc -I/mingw64/include/ncurses -o PROGRAMNAME main.c -lncurses -L/mingw64/bin -static
