@@ -1,0 +1,118 @@
+Montarilo Changelog
+
+v0.9.0
+- Now lowercase and uppercase and mixes of labels` names mean the same.
+- HEX numbers and addresses now should start with a number, and finish with h, to be identified.
+- Adjusted all imediate values to only positive declarations.
+- Fixed addIm() so that HEX values would be cleared of their H with clearNumericalLabel().
+- EXTERN labels are now added to ST as they should.
+- Added DefinitionTable and DefinitionLine. Based on SimbolTable and SimbolLine.
+- PUBLIC labels are now working properly, but only inside .text loop.
+
+KNOW ISSUES
+- strtol() error checking does not work.
+- labels in many places are not verified. There`s no check to see if they start with numbers.
+- strange memory issues appeared while making v0.9.1, part of monta() was taken from v0.8.4
+
+v0.9.1
+- Added UseLine and UseTable. Based on SimbolTable and SimbolLine.
+- Added isExtern() in simboltable.h to say if a label is extern or not.
+- EXTERN directive is now working properly.
+- EXTERN and PUBLIC now inside the right place. Should be between .being and .something.
+- Fixed: .start (according to example 6) should be followed by a identifier but that identifier should not be added to SimbolTable.
+
+v0.9.1a
+- Fixed: AddIm() was wrongly choosing between HEX and DECIMAL values.
+
+v0.9.2
+- Fixed: printf should be printing corretly the linker chars only if the code needs linking.
+- Fixed: SegFault because of freeing UseTable and DefTable before the others.
+
+v1.0 -> CheckPoint 1
+- Makefile now has a target "exemplos" to assemble all examples. They were all tested and work properly.
+- Removed lost printf() inside addIm().
+- Adjusted return value of main() to zero so it can execute properly (Makefile reads non zero returns as error codes).
+- Added comments to all files.
+- Added extra examples to show funcionality
+- Added Error Checking for: .data and .begin misdeclarations and programs without .end.
+- Added extra examples to makefile. Added target "exemplos_clean" to clear all output data.
+
+KNOW ISSUES
+- strtol() error checking does not work.
+- labels in many places are not verified. There`s no check to see if they start with numbers.
+
+v1.2.0 
+- Added ce.h and ce.c that deal with ELF stuff.
+- Added updateMCTable() that currently prints relocation information and the .text section.
+- Added updateDirTable() that currently prints .data section.
+This makes any program without extern or public fully printable to an elf file.
+
+v1.3.0
+- Added functions to create Elf32_Sym.
+
+v1.3.1
+- Added istextsim to simbolline. This makes possible for the program to know which section the symbol is refering to.
+- Added in .data and .text the commands to use istextsim properly.
+- Added name to simbolline. This makes possible for the program to know what index in strtab this simbol has.
+- Added in .data and .text the commands to use name properly.
+- Added elfPrintSimbolTable() whose name should be used as pattern for other method names. 
+- None of these methods could be tested, but the program is compiling. 
+
+v1.4.0
+- Added elfPrintStrTab() and tested all methods from earlier versions. Everything is working fine.
+
+v1.4.1
+- Added entry point correct recognition.
+
+v1.4.2
+- <Early stage> Added use table in simbol table printing.
+- Fixed a bug in strtable printing not working as it should.
+
+v1.4.3
+- Removed deprecated functions.
+- useLine->valor was incorrect since 1.0 FINAL and surely older versions.
+- Added and tested updateStWithDt() that tells if a simbol in st is public. Changed both st and dt structs to reflect the changes in usage.
+
+v1.5.0
+- Added Elf32_Str and related methods.
+- Changed getStringSize() to be able to recognize NULL strings. Returns 0 in this case.
+- Tested Elf32_Str, related methods and changes necessary for UseTable. Usetable printing should be working correctly, although ex6_2 is giving segmentation faults,
+ex6_1 is working properly.
+
+v1.5.1
+- Minor bugs fixed. Everything seems to be working as it should.
+	- Fixed segmentation fault in ex6_2. It was related with a file with no entry point.
+	- Fixed simbol count being one value lower than it should.
+
+v1.5.2
+- Fixed program bugging when using numerical address values in instructions.
+- Fixed SimbolTable and StringTable printing for programs that have no Simbols.
+
+v1.5.2a
+- Added comments and other cosmetic changes. elfprint.h exists for some time now, can`t remember the version it started.
+
+v2.0 RC2
+- Added documentation, example folder, and updated README.
+- Fixed some portuguese characters bugging doxygen make pdf thingy.
+
+v2.1
+- Fixed some documentation.
+- Fixed some comments.
+- Changed a lot of files and functions, variable names... No big change, just making the code more readable.
+- Removed error() function from every file except montador.c. Errors are now coded in the return values, as they should.
+  This means that many of the errors that the program warned before, aren`t warned anymore (for now!)
+
+v2.2
+- Debug Simbols are now added in the section .stab. Everything needed to make that work was added.
+
+v2.3.0
+- Started to reshape monta() changing references to error() to return values, and making changes to make the code slimer, faster and so on. Ended .text LOOP.
+
+v3.0 RC1
+- Finished revising every error code in the program and changing the call mode.
+
+v3.0 FINAL
+- Fixed an error: .strtab from .srttab
+
+v3.1
+- Added error checking for everything related to numbers in the program that were not verified. Now directives can also receive hex numbers as input.

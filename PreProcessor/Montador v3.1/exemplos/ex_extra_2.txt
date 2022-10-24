@@ -1,0 +1,17 @@
+;Demonstra os tipos de entradas possiveis para imediatos
+;Decimal e Hexa
+;Demonstra programa sem regiao .data
+;Algumas variacoes de maiusculo e minusculo
+.begin love_2
+
+.text
+adi 16
+adi 16H
+adi 10
+sbi 16h
+ADD B
+ADD C
+aDI 16
+.end
+ 
+

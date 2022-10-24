@@ -1,0 +1,21 @@
+;Demonstra o uso de calls para enderecos
+;em hexa e para simbolos.
+;Demonstra que o programa consegue ler labels sem espacamento com instrucoes.
+;Demonstra a ignorancia do programa a maiusculas e minusculas
+
+.begin love_1
+.text
+
+	call 0AABBH
+	jmp love
+	jmp LOVE
+	jmp lOvE
+	jmp LOve
+
+	mov B,A
+love:mov A,B ;deu moh trabalho pra fazer isssoooo
+
+
+.data
+.end
+

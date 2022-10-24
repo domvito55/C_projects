@@ -1,0 +1,55 @@
+.begin MAX3
+extern MAX
+extern ADD1
+public ADD_OUTPUT
+.text
+.start START
+START: lxi h,VETOR1 
+lxi d,ADD1 
+mov c,m 
+inr c 
+call COPY 
+lxi h,ADD_OUTPUT 
+mov a,m 
+lxi h,MAX1 
+mov m,a 
+lxi h,VETOR2 
+lxi d,ADD1 
+mov c,m 
+inr c 
+call COPY 
+lxi h,ADD_OUTPUT 
+mov a,m 
+lxi h,MAX2 
+mov m,a 
+lxi h,VETOR3 
+lxi d,ADD1 
+mov c,m 
+inr c 
+call COPY
+lxi h,ADD_OUTPUT 
+mov a,m 
+lxi h,MAX3 
+mov m,a 
+hlt 
+COPY: mov a,m 
+xchg 
+mov m,a 
+inx h 
+xchg 
+inx h 
+dcr c 
+jnz COPY
+call MAX 
+ret
+ 
+ 
+.data
+ADD_OUTPUT: ds 1 
+VETOR1: db 10,1,2,3,4,5,5,4,3,2,1 
+MAX1:   ds 1 
+VETOR2: db 7,13,2,31,54,55,51,48 
+MAX2:   ds 1 
+VETOR3: db 5,11,29,36,4,6 
+MAX3:   ds 1 
+.end

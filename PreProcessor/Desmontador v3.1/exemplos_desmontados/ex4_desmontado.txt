@@ -1,0 +1,26 @@
+.begin exemplos_desmontados/ex4_desmontado.txt
+
+.text
+.start
+
+start:	 	LXI H,base
+		MOV B,M
+		LXI H,altura
+		MOV C,M
+		CALL mult
+		LXI H,area
+		MOV M,A
+		HLT
+mult:	 	MVI A,0
+loop:	 	ADD B
+		DCR C
+		JNZ loop
+		RET
+
+.data
+
+base:	 	db 10
+altura:	 	db 3
+area:	 	db 0
+
+.end

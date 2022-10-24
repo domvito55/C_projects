@@ -1,0 +1,35 @@
+.begin FAT
+;fatorial de n 
+.text
+.start start 
+start: lxi h,n 
+mov c,m 
+fat:
+mov b,c 
+dcr c 
+lxi h,aux 
+mov m,c 
+jz fim 
+call Mult 
+lxi h,n 
+mov m,a 
+mov b,a 
+lxi h,aux 
+mov c,m 
+jmp fat 
+fim: hlt 
+;A = B * C 
+Mult: MVI  A,0
+;A is product 
+;add x to accumulating product in A 
+Loop: ADD  B
+DCR  C
+;y counter­­ 
+;until count down to zero 
+JNZ  Loop
+RET 
+.data 
+n:   db 5 
+aux: ds 1
+.end
+

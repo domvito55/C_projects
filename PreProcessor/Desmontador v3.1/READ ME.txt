@@ -1,0 +1,113 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@																	@
+@		Desmontador (v3.0)													@
+@																	@
+@	Por: Ana Carolina Cardoso de Sousa												@
+@		anacsousa@lara.unb.br													@
+@	Data de conclusão: 21 de Janeiro de 2011											@
+@																	@
+@																	@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+SUMÁRIO:
+1. Como compilar o código
+2. Como executar o código
+3. Especificações do arquivo de entrada
+4. Especificações do arquivo de saída
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+1. Como compilar o código
+	
+	- Descompacte o arquivo "desmontador_(v2.0).zip" no diretório de sua preferência.
+	- No terminal, entre no diretório escolhido acima e digite 
+		
+			make
+	
+	Pronto! O programa está pronto para ser executado!
+
+	Obs.: Pode-se apagar os arquivos utilizados para a compilação do código (.c, .o, .h, makefile...), mas é importante notar que
+	o arquivo "tabela.txt" é extremamente importante para a execução correta do programa, então recomenda-se que este não seja
+	apagado e não seja alterado.
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+2. Como executar o código
+
+	- Digite no terminal, os comandos necessários para a execução do código, existem quatro tipos de comandos aceitos pelo programa:
+
+		- Digite apenas ./desmontador e o nome do arquivo que se deseja desmontar (esse arquivo será desmontado num arquivo
+		texto chamado "<nomeescrito>.txt", sendo nomeescrito o nome escrito na linha de comando), por exemplo*:
+
+			./desmontador arquivomontado
+			O arquivo "arquivomontado" será desmontado no arquivo "arquivomontado.txt"
+
+		- Digite o nome do programa, o nome do arquivo que se deseja desmontar e o nome do arquivo final, por exemplo:
+
+			./desmontador arquivomontado desmontado.txt
+			O arquivo "arquivomontado" será desmontado no arquivo "desmontado.txt"
+
+		- Digite apenas ./desmontador -g e o nome do arquivo que se deseja desmontar (esse arquivo será desmontado num arquivo
+		texto chamado "<nomeescrito>.txt", sendo nomeescrito o nome escrito na linha de comando), por exemplo**:
+
+			./desmontador -g arquivomontado
+			O arquivo "arquivomontado" será desmontado no arquivo "arquivomontado.txt"
+
+		- Digite o nome do programa, o nome do arquivo que se deseja desmontar e o nome do arquivo final, por exemplo:
+
+			./desmontador -g arquivomontado desmontado.txt
+			O arquivo "arquivomontado" será desmontado no arquivo "desmontado.txt"
+
+		*O programa será lido pelo Program Header. Ou seja, se não existir o Program Header não será lido.
+		**O programa será lido pelo Section Header. Ou seja, se não existir o Section Header não será lido.
+
+	- Dentro da pasta "exemplos" existem vários exemplos para serem desmontados, caso se deseja desmontar todos os exemplos do tipo
+	ex0x_montado, digite no terminal***:
+
+			make desmonte
+
+	***Para esse tipo de comando o arquivo "makefile" deve estar na mesma pasta do arquivo executável e não pode ser apagado nem
+	alterado.
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+3. Especificações do arquivo de entrada
+
+	- Esse programa foi feito apenas para desmontar um arquivo elf segundo o modelo padrão dos arquivos elf.
+	
+	- Esse arquivo tem que ser executável ou um arquivo objeto, sem nenhum erro, pode possuir o Program Header e/ou o Section Header e
+	deve possuir informações de DEBUG.
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+4. Especificações do arquivo de saída
+
+	O arquivo de saída será um arquivo texto com o código desmontado correspondente ao código da entrada. Como por exemplo:
+
+.begin codigo.txt
+
+.text
+.start Pikachu
+
+Pikachu: 	LXI H,Raichu
+		MOV A,M
+		LXI H,Bulbasaur
+		MOV B,M
+		ADD B
+		LXI H,Charmander
+		MOV M,A
+		MVI A,1
+		DCR A
+		HLT
+
+.data
+
+Raichu: db 10
+Bulbasaur: db 3
+Charmander: db 1
+
+.end
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+

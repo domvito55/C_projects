@@ -1,0 +1,27 @@
+Tabela de simbolos
+    - declaracao de variaveis
+    - declaracao de porcedimentos
+    - declaracao subrotina
+Arvore de derivacao
+    -exibe estrutra sintatica do programa
+Tabela de definicoes
+        - simbolos externos usados no codigo
+Tabela de uso
+    - simbolos exortados e seus atributos
+Tabela de instrucoes
+    - codigos simbolicos
+        - formato da instrucao e opcode numerico
+COntador de linha
+    - linha atual no codigo
+Contador de posicoes
+    - posicao na memoria
+Tabela de diretivas
+    - contem as diretivas
+MNT
+    - tabela com nomes das macros no programa
+    - numero de argumentos
+    - local na MDT
+MDT
+    - tabela com corpo das macros
+    - utiliza marcadores de indice (#i)
+    

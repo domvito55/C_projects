@@ -1,0 +1,17 @@
+.begin exemplos_desmontados/ex_extra_1_desmontado.txt
+
+.text
+.start
+
+		CALL 00165H
+		JMP love
+		JMP love
+		JMP love
+		JMP love
+		MOV B,A
+love:	 	MOV A,B
+
+.data
+
+
+.end

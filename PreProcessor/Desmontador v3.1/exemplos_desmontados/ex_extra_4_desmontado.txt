@@ -1,0 +1,10 @@
+.begin exemplos_desmontados/ex_extra_4_desmontado.txt
+
+.text
+.start
+
+
+.data
+
+
+.end

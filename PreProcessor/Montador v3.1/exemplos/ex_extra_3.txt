@@ -1,0 +1,41 @@
+ 
+;Demonstra varias linhas com identacoes e comentarios
+;Para demonstrar as funcionalidades do preprocessamento
+
+ ;Comentario
+
+				;;;;;com;e;n;t;a;r;i;o
+  	; co m e n t a r i o
+
+.begin love_3
+
+
+.text
+			; love 3
+;
+
+; oh yeah
+
+mov b,b
+
+				mov c,c ;don`t do it
+
+;mov today,yesterday
+
+    ; oh noes
+
+
+
+				   .data
+
+	db						10,20,30,40,50,60,70,10,20,30
+
+
+ds				10
+
+
+;uhuuu
+
+.end
+
+	

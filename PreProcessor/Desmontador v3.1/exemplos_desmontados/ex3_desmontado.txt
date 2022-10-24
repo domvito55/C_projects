@@ -1,0 +1,32 @@
+.begin exemplos_desmontados/ex3_desmontado.txt
+
+.text
+.start
+
+start:	 	LXI H,n
+		MOV C,M
+fat:	 	MOV B,C
+		DCR C
+		LXI H,aux
+		MOV M,C
+		JZ fim
+		CALL mult
+		LXI H,n
+		MOV M,A
+		MOV B,A
+		LXI H,aux
+		MOV C,M
+		JMP fat
+fim:	 	HLT
+mult:	 	MVI A,0
+loop:	 	ADD B
+		DCR C
+		JNZ loop
+		RET
+
+.data
+
+n:	 	db 5
+aux:	 	db 0
+
+.end

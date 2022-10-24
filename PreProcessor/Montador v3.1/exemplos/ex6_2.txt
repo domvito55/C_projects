@@ -1,0 +1,21 @@
+.begin MODB 
+public MAX
+public ADD1
+extern ADD_OUTPUT
+.text
+MAX: lxi h,ADD1 
+mov c,m 
+inx h 
+mov a,m 
+ADD2: inx h 
+      cmp m 
+jnc LESS 
+mov a,m 
+LESS: dcr c 
+jnz ADD2 
+sta ADD_OUTPUT 
+      ret 
+.data 
+ADD1: ds 20
+.end
+

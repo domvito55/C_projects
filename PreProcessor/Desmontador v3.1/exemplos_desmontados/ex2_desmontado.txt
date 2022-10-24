@@ -1,0 +1,37 @@
+.begin exemplos_desmontados/ex2_desmontado.txt
+
+.text
+.start
+
+max:	 	LXI H,add1
+		MOV C,M
+		INX H
+		MOV A,M
+add2:	 	INX H
+		CMP M
+		JNC less
+		MOV A,M
+less:	 	DCR C
+		JNZ add2
+		STA add_output
+		HLT
+
+.data
+
+add1:	 	db 4
+		db 1
+		db 2
+		db 3
+		db 150
+add_output:	 	db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+
+.end

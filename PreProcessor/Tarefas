@@ -1,0 +1,35 @@
+Tarefas
+    - Processar diretivas
+         .macro (incluir macros)
+         NomeDaMacro: macro/*marcador*/ Argumentos
+                        Codigo
+                      endmacro/*marcador*/
+         .define (para incluir constantes, deve estar dentro do .data)
+         .include
+XXXX- Possibilidade de trabalhar com numeros negativos, e 4 bases numéricas
+            As letras ao fim nao sao espacadas do numero
+        decimal (standart e com fim d)
+        hex (com fim h)
+        octal (com fim o)
+        binário (com fim b)
+XXXX- solicitar nome de arquivos se estes nao forem passados
+XXXX- erros para labels mal formadas
+        somente numeros
+        comecando com numero
+        iguais a palavras chave
+        so com pontuacao
+XXXX- execucao de calculos simples
+
+Estrutura da entrada:
+    .begin <nome>
+    .data
+    .text
+        .start (so um dos arquivos em)
+    .end
+    ; define comentario
+    pode estar em Caixa alta ou baixa
+
+    - fazer readme
+    - documentacao
+    - descrever cada funcao
+    - enviar codi codigos exemplos

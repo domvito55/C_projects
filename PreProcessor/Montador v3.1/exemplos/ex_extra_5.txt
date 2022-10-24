@@ -1,0 +1,23 @@
+;Analise de erros
+;Os erros estao marcados com comentarios.
+;Para testar eh so descomentar o erro especifico, ou comentar
+
+
+.begin love_5    
+
+	;.begin ; ERRO 1 sem identificador
+	;.start ; ERRO 2 fora da regiao
+	;mov a,a ; ERRO 3fora da regiao
+
+.data
+	;dance 10 ; ERRO 7 diretiva desconhecida
+
+
+
+.text
+	;rst 9 ; ERRO 4 argumento invalido para RST
+	;mov M,M ; ERRO 5 argumentos invalidos para mov
+	;mov A, A ; ERRO 6 Espaco onde nao deveria, acarreta mais tokens na linha do que deveria.
+
+
+.end ; ERRO 8 Programa sem .end (comente para testar)

@@ -1,0 +1,35 @@
+.begin exemplos_desmontados/ex5_desmontado.txt
+
+.text
+.start
+
+start:	 	LXI H,n
+		MOV C,M
+		DCR C
+loop:	 	LXI H,older
+		MOV A,M
+		LXI H,old
+		ADD M
+		LXI H,new
+		MOV M,A
+		DCR C
+		JZ final
+		LXI H,old
+		MOV B,M
+		LXI H,older
+		MOV M,B
+		LXI H,new
+		MOV B,M
+		LXI H,old
+		MOV M,B
+		JMP loop
+final:	 	HLT
+
+.data
+
+n:	 	db 5
+old:	 	db 1
+older:	 	db 0
+new:	 	db 0
+
+.end

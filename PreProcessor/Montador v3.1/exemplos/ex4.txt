@@ -1,0 +1,38 @@
+.begin AreaTri
+.text
+.start start
+start:
+ 
+LXI H,base   ;get x 
+MOV  B,M
+  ;B is x 
+LXI H,altura  ;get y 
+MOV  C,M
+  ;C is y 
+CALL  Mult 
+LXI H,area 
+MOV M,A
+  ;product to memory 
+HLT 
+;subroutine: multiply
+;two positive numbers x*y 
+; B holds x 
+; C holds y, decrements until 0 
+; A holds accumulating product 
+;Loop y times adding B(x) to A 
+Mult: MVI  A,0
+;A is product 
+    ;add x to accumulating product in A
+Loop: ADD  B
+ 
+DCR  C
+;y counter­­ 
+      ;until count down to zero 
+JNZ  Loop
+RET 
+.data 
+base: db 10 
+altura: db 3 
+area: ds 1 
+.end
+

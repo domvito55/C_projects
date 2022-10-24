@@ -1,0 +1,97 @@
+Autor: Matheus Vinícius Ferreira de Figueiredo Teixeira
+Matricula: 0913511
+Nome: LigadorDoFrango
+
+Descrição:
+	Este programa trata-se um ligador de arquivos objetos montados para
+	o processador 8085. Seguem-se algumas explicações.
+	
+Instalação:
+	- Entrar no diretorio Frango
+	- Executar o comando make
+
+Utilização:
+	- trazer os arquivos objetos que deseja-se ligar para o diretório Frango
+	- executar: ./ligadorb [arquivos objetos] [-o] [saida] [-g]
+
+Restrições:
+	- o arquivo objeto que contem a "função main" deve ser
+	o primeiro arquivo passado como argumento
+
+	- o nome do arquivo de saida, se fornecido, deve ser passado imediatamente
+	após a flag -o
+
+Sobre a chamada:
+	- o programa pode receber um numero indeterminado de arquivos objetos
+	- a ordem dos argumentos não importa, desde que respeitada as restrições
+	esplicitadas acima
+	- a flag -g em tese serveria para mostrar informações de DEBUG
+	- se não for fornecido nome para o arquivo de saida, por padrão, este será
+	a.out
+
+Sobre o programa:
+	- Assume-se que o ponto de inicio do programa (start_label) está sempre
+	dentro da section .text, na verdade eu acho que não tenha lógica que isso
+	se localize em outo lugar. No entanto, não é necessário que o start label
+	seja a primeira coisa do .text
+	
+	- Assume-se também que arquivo principal sempre tem a section .text
+	Isso, pra mim, também parece obvio.
+	
+	- Assume-se que as os bytes relocaveis se referem a endereços nas
+	sections .data ou .text
+	
+	- section .bss, não foi considerada
+	
+	- Foi criada uma entrada a mais no program header, essa entrada é do tipo
+	dynamic e tem uma interpretação diferente da que é dada por padrão pelo
+	arquivo Elf. Essa alteração foi feita para facilitar o trabalho do meu
+	colega (Dioginho) na elaboração do tradutor-carregador. Nesse segment, foi
+	impresso as informações de relocação, por esse motivo se você passar os
+	arquivos de saida pelo readelf, ele vai reclamar que não consegue ler
+	a região dynamic
+	
+	- Os nomes de funções criadas por mim, iniciam com o nome do arquivo onde
+	foram definidas	o que facilita achar suas definições.
+	
+algoritmo do programa:
+	- le todos os Elf Headers (um de cada arquivo objeto fonte) e os armazena
+	em uma lista EHentrada.
+	
+	- le todas as Sections Headers e as armazena em uma matriz. SHentrada[j][i]
+	é a i-ésima section header do j-ésimo arquivo objeto fonte.
+	
+	- classifica as section headers por tipos seguindo a tabela apresentada no
+	arquivo tipar.c. as informações de tipo ficam armazenadas em uma matrix.
+	o valor armazenado em matriz[j].e[i] é o tipo da i-ésima section header
+	do j-ésimo arquivo objeto
+	
+	- cria e imprime o Elf Header da saída
+
+	- imprime o Program Header Table da saída, "em branco"
+	
+	- com base nas informações adquiridas dos sections header
+		- imprime uma a uma as sections .text de cada arquivo objeto fonte
+		- atualiza as informações do seu respectivo program header
+
+		- imprime uma a uma as sections .data de cada arquivo objeto fonte
+		- atualiza as informações do seu respectivo program header
+
+		- elabora-se a tabela global de definições
+
+		- resolvem-se as referências cruzadas
+		- resolvem-se outras relocações
+		
+		- imprime-se todas as instrunções do tipo rela no fim do arquivo saida
+		
+		- define-se para as informações de relocação uma entrada do tipo
+		dynamic (Isso é uma adaptação, o readelf não conseguirá entender
+		as informações aqui contidas, mas elas serão necessárias para o 
+		algoritmo de tradução)
+		
+		- re imprime-se a Program Header Table, agora com todos os valores
+		atualizados
+		
+fim
+
+Foram usados os arquivos ex6_1_montado e ex6_1_montado e os programas readelf, bless e objdump, para fazer-se os teste e concluiu-se que o ligador funciona perfeitamente.

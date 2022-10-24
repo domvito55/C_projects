@@ -1,0 +1,34 @@
+;calcula serie de fibonnaci
+;ate valor limite
+.begin FIBONACCI
+.text
+.start   start 
+start: lxi h,n 
+mov c,m 
+dcr c 
+loop: lxi h,older 
+mov a,m 
+lxi h,old 
+add m 
+lxi h,new 
+mov m,a 
+dcr c 
+jz final 
+lxi h,old 
+mov b,m 
+lxi h,older 
+mov m,b 
+lxi h,new 
+mov b,m 
+lxi h,old 
+mov m,b 
+jmp loop 
+final: hlt
+ 
+.data 
+n:     db 5 
+old:   db 1 
+older: db 0 
+new:   ds 1
+.end
+

@@ -1,0 +1,11 @@
+.begin love
+.text
+jmp 0AAABH
+adi 16
+adi 16H
+adi 0AAH
+adi AA
+
+
+.data
+.end

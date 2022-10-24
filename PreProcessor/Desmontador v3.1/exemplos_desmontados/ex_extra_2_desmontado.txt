@@ -1,0 +1,17 @@
+.begin exemplos_desmontados/ex_extra_2_desmontado.txt
+
+.text
+.start
+
+		ADI 16
+		ADI 22
+		ADI 10
+		SBI 22
+		ADD B
+		ADD C
+		ADI 16
+
+.data
+
+
+.end

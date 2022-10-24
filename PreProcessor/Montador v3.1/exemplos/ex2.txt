@@ -1,0 +1,22 @@
+.begin  MAX
+;calcula o valor máximo em um vetor de
+;inteiros
+.text
+.start max
+max: lxi h,ADD1 
+mov c,m 
+inx h 
+mov a,m 
+ADD2: inx h 
+      cmp m 
+jnc LESS 
+mov a,m 
+LESS: dcr c 
+jnz ADD2 
+sta ADD_OUTPUT 
+      hlt 
+.data 
+ADD1: db 4,1,2,3,150 
+ADD_OUTPUT: ds 10
+.end
+

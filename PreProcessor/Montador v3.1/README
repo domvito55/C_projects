@@ -1,0 +1,72 @@
+Com excecao do que foi implementado o montador funciona exatamente como o do murilo,
+portanto, entenda como do cumentacao, a documentacao original+esse arquvivo.
+
+
+exercicio 5 e 2:
+	- adicao de arquivos funcmice.c e funcmice.h
+	- adicao de codigo nas linas [15:17]; [113:119]  do arquivo preProcessor.c
+	- adicao de variaveis nas linhas [40:43] do arquivo preProcessor.c
+	- adicao de condicoes no if da linha 105 do arquivo preProcessor.c
+	- implementacao de if na linha 122 do arquivo preProcessor.c
+	- adicao de linhas no make file para compilar funcmice.c
+	- a implementacao desses exercicios é de fato tratada nos arquivo funcmice.c,
+	a funcao conta presente nesse arquivo é chamada nas linhas [113:119] do
+	arquivo preProcessor.c
+
+	comentarios:
+		- como todas as funcoes do montarilo "entendem" numeros hex, todos os numeros no co
+		digo fonte sao convertidos para hexadecimal, considerando complemento de dois, inclu
+		sive, os numeros presentes na formacao das labels, mas isso nao afeta em nada o funci
+		onamento do codigo original.
+		- como operacao simples foi entendido subtracao, adicao, multiplicacao e divisao com
+		apenas dois operandos
+			ex:
+				4h + 10d => funciona
+				4o + 5 -10b => nao garanto
+		- numeros em hexa devem sempre comecar com digito ou sinal
+				ex:
+				0ah + -0ah => funciona
+				ah + 5 => erro
+		- internamente as operacoes sao todas feitas em ponto flutuante, isso permite que tal
+		preprocessamento seja facilmente adaptado para outros montadores mais "parrudos".
+	
+exercicio 4:
+	- inclusao de variavel j na linha 1052 do arquivo instrucao.c
+	- inclusao de ifs nas linhas [1067:1076] do arquivo instrucao.c
+	- if nas linha [219:231] do arquivo funcmice.c
+	
+exercicio 3
+	- adicao de variaveis a linha 100 do arquivo montador.c
+	- adicao de codigo da linha 108 a linha 118 do arquivo montador.c
+	- todas as funcoes que recebiam argv[1] ou argv[2], como parametros, passaram
+	a receber v1 e v2, respectivamente.
+	
+exercicio 1:
+	- nao foi feito
+
+melhoria de desempenho:
+	- o preprocessamento original avalia caracter por caracter, mas percebi que se ao
+	inves de avaliar cada caracter passarmos a avaliarmos strings, isso nos dará um au
+	mento de desempenho descomunal e facilitará o tratamento de macros e defines. Essa
+	mudanca de avaliacao tambem nao foi implementada por falta de tempo. Percebi isso
+	tarde de mais, se tivesse feito essa mudanca de cara, provavelmente, eu teria feito
+	o exercicio 1 e teria evitado algumas redundancias
+	
+	- o codigo apresenta algumas reduncias que poderiam ser retiradas, mas que nao o
+	foram, porque garantem que o codigo funcionara perfeitamente, e eu nao tenho mais
+	tempo para verificar se sua retirada causaria algum malfuncionamento.
+
+	
+comentarios gerais:
+	- o tamanho do buffer de linha foi aumentado, linha 13 do arquivo lexicAnaliser.h
+	- o trabalhofoi feito simuntaneamente ao preprocessamento feito pelo murilo, isso
+	evitou a necessidade uma passagem a mais pelo montador.
+	- o exercicio 1, foi deixado para fazer por ultimo, acabou nao sendo feito, por fal
+	ta de tempo
+	- foram incluidos printf's, fora de identacao, para que o codigo seja impresso na tela
+	isso evita a necessidade da desmontagem para ver se o preporcessamento esta sendo feito
+	de modo correto
+	- o exemplo 1 apresenta as caracteristicas necessarias para verificacao do funcionamento
+	do preprocessamento, o que se supoe que deve gerar erro esta em comentario, para testar,
+	basta retirar o ; do inicio da linha.
+	- sinta-se a vontade para testar outras caracteristicas do programa.

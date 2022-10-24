@@ -1,0 +1,23 @@
+.begin SOMA
+;soma dois numeros
+.data
+N1: db 0a0h + 10b
+;...: db 0a0h + 10b
+;0ram: db 0a0h + 10b
+;add: db 0a0h + 10b
+N2: db 80h/-1 
+N3: ds 1
+.text
+.start inicio
+inicio: LXI H,N1 
+  MOV A,M 
+  LXI H,N2 
+  MOV B,M 
+  ADD B 
+  LXI H,N1 
+  MOV M,A 
+  MVI A,1 
+  DCR A
+  ADI 16
+  HLT 
+.end

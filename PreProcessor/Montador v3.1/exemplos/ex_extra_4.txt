@@ -1,0 +1,11 @@
+; Parece bobeira, mas mostra que o programa nao buga com um programa vazio.
+
+.begin love_4
+
+.text
+
+
+.data
+
+
+.end

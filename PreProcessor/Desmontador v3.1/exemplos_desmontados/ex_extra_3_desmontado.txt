@@ -1,0 +1,32 @@
+.begin exemplos_desmontados/ex_extra_3_desmontado.txt
+
+.text
+.start
+
+		MOV B,B
+		MOV C,C
+
+.data
+
+		db 10
+		db 20
+		db 30
+		db 40
+		db 50
+		db 60
+		db 70
+		db 10
+		db 20
+		db 30
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+		db 0
+
+.end

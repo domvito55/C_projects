@@ -1,0 +1,23 @@
+.begin exemplos_desmontados/ex1_desmontado.txt
+
+.text
+.start
+
+inicio:	 	LXI H,n1
+		MOV A,M
+		LXI H,n2
+		MOV B,M
+		ADD B
+		LXI H,n3
+		MOV M,A
+		MVI A,1
+		DCR A
+		HLT
+
+.data
+
+n1:	 	db 10
+n2:	 	db 3
+n3:	 	db 0
+
+.end
