@@ -101,7 +101,7 @@ while(!fim)
      {
      tecla = getch();
 
-     //direciona a cobrinha; toda a primeira parte do if(antes do ultimo && impede que a cobrina passe por cima de si mesma caso o usuario aperte a tecla com o sentido contrario ao movimento da cobra
+     //direciona a cobrinha; toda a primeira parte do if(antes do ultimo &&) impede que a cobrina passe por cima de si mesma caso o usuario aperte a tecla com o sentido contrario ao movimento da cobra
      if((!(((a==259)&&(tecla==258))||((a==258)&&(tecla==259))||((a==260)&&(tecla==261))||((a==261)&&(tecla==260)))) && (a!=tecla))
        {
          switch(tecla)
@@ -231,12 +231,12 @@ while(!fim)
         {
         if(pos_fruta[0]==pos_cobra[0][0] && pos_fruta[1]==pos_cobra[0][1])
           {
-	  pos_cobra[tam_cobra][0]=lx;
-	  pos_cobra[tam_cobra][1]=ly;
-	  tam_cobra++;
-	  pontos += 1;
-	  num_frutas=0;
-	  break;
+      	    pos_cobra[tam_cobra][0]=lx;
+	          pos_cobra[tam_cobra][1]=ly;
+	          tam_cobra++;
+	          pontos += 1;
+  	        num_frutas=0;
+	          break;
           }
        }
 
@@ -252,7 +252,7 @@ while(!fim)
      //faz com que tudo seja impresso de uma vez na tela
      refresh();
 
-     //atraza as impress&otilde;es em 1,5 segundos: regula a velocidade da cobra
+     //atrasa as impress&otilde;es em 1,5 segundos: regula a velocidade da cobra
      usleep(150000);
      }
 

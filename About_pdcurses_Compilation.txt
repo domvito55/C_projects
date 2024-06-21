@@ -1,7 +1,18 @@
-gcc CobrinhaMatriz.c -I D:/pCloudFolder/Repositories/C_projects/PDCurses-3.8 D:/pCloudFolder/Repositories/C_projects/PDCurses-3.8/wincon/pdcurses.a -o main.exe
-
-pdcourses compilation (instalation)
+pdcourses compilation (instalation) - NO NEED
 https://github.com/wmcbrine/PDCurses/blob/master/wincon/README.md
+
+GCC instalation
+Download and Install MSYS2:
+	Download the installer from msys2.org.
+	Run the installer and follow the instructions.
+	Open the MSYS2 shell from the Start Menu.
+
+pacman -S mingw-w64-ucrt-x86_64-gcc
+
+
+
+gcc CobrinhaMatriz.c -I D:/pCloudFolder/Repositories/LongLiveRepos/C_projects/PDCurses-3.8 D:/pCloudFolder/Repositories/LongLiveRepos/C_projects/PDCurses-3.8/wincon/pdcurses.a -o main.exe
+
 
 To add 3rd party libraries to a C project compilation
 
